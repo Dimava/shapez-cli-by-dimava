@@ -1,0 +1,19 @@
+{
+  "name": "shapez-cli-by-dimava",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Dimava/shapez-cli-by-dimava.git",
+  "author": "Dimava",
+  "license": "MIT",
+  "packageManager": "yarn@3.2.0",
+  "dependencies": {
+    "rollup": "^2.70.1",
+    "rollup-plugin-base64": "^1.0.1",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.3"
+  },
+  "scripts": {
+	  "test-mod": "cd test-mod && yarn rollup -c --watch"
+  }
+}
