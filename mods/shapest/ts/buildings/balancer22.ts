@@ -44,9 +44,9 @@ export class Balancer22 {
 				name: "3-1 splitter",
 				description: "For when you want to have multiple lines",
 
-				tutorialImageBase64: RESOURCES.splitter1,
-				regularSpriteBase64: RESOURCES.splitter1,
-				blueprintSpriteBase64: RESOURCES.splitter1,
+				tutorialImageBase64: RESOURCES.Tri-splitter,
+				regularSpriteBase64: RESOURCES.Tri-splitter,
+				blueprintSpriteBase64: RESOURCES.Tri-splitter,
 
 				dimensions: new Vector(1, 1),
 
@@ -68,9 +68,9 @@ export class Balancer22 {
 				name: "1-3 merger",
 				description: "three becomes one",
 
-				tutorialImageBase64: RESOURCES.splitter1,
-				regularSpriteBase64: RESOURCES.splitter1,
-				blueprintSpriteBase64: RESOURCES.splitter1,
+				tutorialImageBase64: RESOURCES.Tri-merger,
+				regularSpriteBase64: RESOURCES.Tri-merger,
+				blueprintSpriteBase64: RESOURCES.Tri-merger,
 
 				dimensions: new Vector(1, 1),
 
