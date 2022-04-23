@@ -14,6 +14,6 @@
     "typescript": "^4.6.3"
   },
   "scripts": {
-	  "test-mod": "cd test-mod && yarn rollup -c --watch"
+    "test-mod": "yarn rollup -c -w --mod test-mod"
   }
 }

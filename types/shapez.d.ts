@@ -278,3 +278,6 @@ export { Application } from 'shapez/application';
 export { RandomNumberGenerator } from "shapez/core/rng";
 export { AtlasSprite } from "shapez/core/sprites";
 export { enumHubGoalRewards } from "shapez/game/tutorial_goals";
+import { Mod } from 'shapez/mods/mod';
+import { ModMetadata } from "shapez/mods/modloader"
+
