@@ -7,6 +7,7 @@
   "license": "MIT",
   "packageManager": "yarn@3.2.0",
   "dependencies": {
+    "concurrently": "^7.1.0",
     "http-server": "^14.1.0",
     "rollup": "^2.70.1",
     "rollup-plugin-base64": "^1.0.1",
@@ -16,7 +17,7 @@
   },
   "scripts": {
     "test-mod": "yarn rollup -c -w --mod test-mod",
-	"shapest": "cd mods/shapest && yarn rollup -c -w",
-	"serve": "yarn http-server"
+    "shapest": "cd mods/shapest && yarn rollup -c -w",
+    "serve": "yarn http-server"
   }
 }
