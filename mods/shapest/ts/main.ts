@@ -1,20 +1,20 @@
-import { Balancer22 } from "./ts/buildings/balancer22";
-import { PainterOverride } from "./ts/buildings/painterOverride";
-import { Rotator3 } from "./ts/buildings/rotator3";
-import { SzLevel } from "./ts/levels/levels";
-import { SandboxMode } from "./ts/sandbox";
-import { SzColorItem } from "./ts/shapest/color";
-import { SzDefinition } from "./ts/shapest/definition";
-import { SzShapeItem } from "./ts/shapest/item";
-import { SzInfo } from "./ts/shapest/layer";
-import { Mod as ModBase } from "./ts/shapez";
-import { SpawnOwerride } from "./ts/SpawnOverride";
+import { Balancer22 } from "./buildings/balancer22.js";
+import { PainterOverride } from "./buildings/painterOverride.js";
+import { Rotator3 } from "./buildings/rotator3.js";
+import { SzLevel } from "./levels/levels.js";
+import { SandboxMode } from "./sandbox.js";
+import { SzColorItem } from "./shapest/color.js";
+import { SzDefinition } from "./shapest/definition.js";
+import { SzShapeItem } from "./shapest/item.js";
+import { SzInfo } from "./shapest/layer.js";
+import { Mod as ModBase } from "./shapez.js";
+import { SpawnOwerride } from "./SpawnOverride.js";
 
 const METADATA: shapez.ModMetadata = {
 	website: "",
 	author: "Dimava",
 	name: "Shapest (working)",
-	version: "1.1.0",
+	version: "1.0.0",
 	id: "shapest",
 	description: "test!",
 	minimumGameVersion: ">=1.5.0",

@@ -47,7 +47,7 @@ export class SzDefinition extends BasicSerializableObject implements ShapeDefini
 	getHash(): string {
 		if (this.cachedHash) return this.cachedHash;
 		if (!this.layers.length) debugger;
-		return this.cachedHash = this.layers.map(e => e.getHash()).join(':');
+		return this.cachedHash = 'sz!' + this.layers.map(e => e.getHash()).join(':');
 	}
 	drawFullSizeOnCanvas(context: CanvasRenderingContext2D, size: number): void {
 		this.internalGenerateShapeBuffer(null as any, context, size, size, 1);

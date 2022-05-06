@@ -94,101 +94,43 @@ export class Rotator3 {
 			[var82]: var82,
 		});
 
+		const base = (img: keyof typeof RESOURCES, angle: number, ccw: boolean) => ({
+			name: `ROTATOR (${angle}°)${ccw ? ' (CCW)' : ''}`,
+			description: `Rotates shapes ${ccw ? 'counter-' : ''}clockwise by ${angle} degrees.`,
+			tutorialImageBase64: RESOURCES[img],
+			regularSpriteBase64: RESOURCES[img],
+			blueprintSpriteBase64: RESOURCES[img],
+			dimensions: new Vector(1, 1),
+			additionalStatistics(root: GameRoot) {
+				const speed = root.hubGoals.getProcessorBaseSpeed(enumItemProcessorTypes.rotater);
+				return [[T.ingame.buildingPlacement.infoTexts.speed, formatItemsPerSecond(speed),],
+				];
+			},
+		} as const);
+
 		mod.modInterface.addVariantToExistingBuilding(
 			// @ts-ignore
 			MetaRotaterBuilding,
 			var31,
-			{
-				name: "Cutter (Mirrored)",
-				description: "A mirrored cutter",
-
-				tutorialImageBase64: RESOURCES.rotate31,
-				regularSpriteBase64: RESOURCES.rotate31,
-				blueprintSpriteBase64: RESOURCES.rotate31,
-
-				dimensions: new Vector(1, 1),
-
-				additionalStatistics(root) {
-					const speed = root.hubGoals.getProcessorBaseSpeed(enumItemProcessorTypes.rotater);
-					return [[T.ingame.buildingPlacement.infoTexts.speed, formatItemsPerSecond(speed),],
-					];
-				},
-				// isUnlocked(root) {
-				// 	return true;
-				// },
-			}
+			base('rotate31', 120, false),
 		);
 		mod.modInterface.addVariantToExistingBuilding(
 			// @ts-ignore
 			MetaRotaterBuilding,
 			var32,
-			{
-				name: "Cutter (Mirrored)",
-				description: "A mirrored cutter",
-
-				tutorialImageBase64: RESOURCES.rotate32,
-				regularSpriteBase64: RESOURCES.rotate32,
-				blueprintSpriteBase64: RESOURCES.rotate32,
-
-				dimensions: new Vector(1, 1),
-
-				additionalStatistics(root) {
-					const speed = root.hubGoals.getProcessorBaseSpeed(enumItemProcessorTypes.rotater);
-					return [[T.ingame.buildingPlacement.infoTexts.speed, formatItemsPerSecond(speed),],
-					];
-				},
-				// isUnlocked(root) {
-				// 	return true;
-				// },
-			}
+			base('rotate32', 120, true),
 		);
 		mod.modInterface.addVariantToExistingBuilding(
 			// @ts-ignore
 			MetaRotaterBuilding,
 			var81,
-			{
-				name: "Cutter (Mirrored)",
-				description: "A mirrored cutter",
-
-				tutorialImageBase64: RESOURCES.rotate81,
-				regularSpriteBase64: RESOURCES.rotate81,
-				blueprintSpriteBase64: RESOURCES.rotate81,
-
-				dimensions: new Vector(1, 1),
-
-				additionalStatistics(root) {
-					const speed = root.hubGoals.getProcessorBaseSpeed(enumItemProcessorTypes.rotater);
-					return [[T.ingame.buildingPlacement.infoTexts.speed, formatItemsPerSecond(speed),],
-					];
-				},
-				// isUnlocked(root) {
-				// 	return true;
-				// },
-			}
+			base('rotate81', 45, false),
 		);
 		mod.modInterface.addVariantToExistingBuilding(
 			// @ts-ignore
 			MetaRotaterBuilding,
 			var82,
-			{
-				name: "Cutter (Mirrored)",
-				description: "A mirrored cutter",
-
-				tutorialImageBase64: RESOURCES.rotate82,
-				regularSpriteBase64: RESOURCES.rotate82,
-				blueprintSpriteBase64: RESOURCES.rotate82,
-
-				dimensions: new Vector(1, 1),
-
-				additionalStatistics(root) {
-					const speed = root.hubGoals.getProcessorBaseSpeed(enumItemProcessorTypes.rotater);
-					return [[T.ingame.buildingPlacement.infoTexts.speed, formatItemsPerSecond(speed),],
-					];
-				},
-				// isUnlocked(root) {
-				// 	return true;
-				// },
-			}
+			base('rotate82', 45, true),
 		);
 
 		// Extend instance methods

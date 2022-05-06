@@ -57,7 +57,7 @@ export class SzLevel {
 
 		Object.values(upgrades).flat().flatMap(e => e.required)
 			.map(e => {
-				e.shape = SzDefinition.getHashfromRawHash(e.shape);
+				e.shape = SzDefinition.getHashfromRawHash(map[e.shape] ?? e.shape);
 				if (map[e.shape]) e.shape = map[e.shape];
 				e.amount = Math.ceil(e.amount / 10);
 			});

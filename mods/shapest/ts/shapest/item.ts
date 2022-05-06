@@ -40,7 +40,7 @@ export class SzShapeItem extends ShapeItem implements ShapeItem {
 
 	static deserialize(data: any) {
 		// debugger;
-		console.log('deserialize', data);
+		// console.log('deserialize', data);
 		if (data.length < 4) debugger;
 		// this.definition = SzDefinition.fromShortKey(data);
 		return new SzShapeItem(new SzDefinition(data));

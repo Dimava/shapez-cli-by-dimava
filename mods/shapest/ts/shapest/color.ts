@@ -37,6 +37,7 @@ export class SzColorItem extends BaseItem implements ColorItem {
 	}
 	constructor(color: colorString) {
 		super();
+		color = color.replace(/(-)(\w)/, '$2$1').replace(/(-)(\w)/, '$2$1') as any;
 		this.color = color;
 	}
 	cachedSprite!: AtlasSprite;
@@ -113,14 +114,14 @@ export class SzColorItem extends BaseItem implements ColorItem {
 	}
 
 	fillFromColor(other: SzColorItem): [SzColorItem, SzColorItem | null] {
-		let s1: string = this.color, s2: string = other.color;
-		while (s1.includes('-') && s2 != '---') {
-			let l1 = s1.lastIndexOf('-');
-			let c = '-';
-			s2 = s2.replace(/[^-]/, C => (c = C, '-'));
-			s1 = s1.replace(/-(?!.*-)/, c);
-		}
-		return [new SzColorItem(s1 as any), s2 == '---' ? null : new SzColorItem(s2 as any)];
+		let aaa: string = this.color, bbb: string = other.color;
+		// aaa,bbb => a,aab,bb-
+		// aa-,bbb => -,aab,bb-
+		// a--,bbb => -,ab-,bb-
+		aaa = aaa.includes('-') ? aaa.replace('-', bbb[0]) : aaa.slice(1) + bbb[0];
+		bbb = bbb.slice(1) + '-';
+		console.log(`split: `, this.color, other.color, '=>', aaa, bbb);
+		return [new SzColorItem(aaa as any), bbb == '---' ? null : new SzColorItem(bbb as any)];
 	}
 
 	splitIntoColors(): [color, color | null] {

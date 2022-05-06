@@ -47,6 +47,10 @@ export class Balancer22 {
 						{ pos: new Vector(0, 0), direction: enumDirection.bottom },
 						{ pos: new Vector(0, 0), direction: enumDirection.left },
 					]);
+					entity.components.BeltUnderlays.underlays = [
+						{ pos: new Vector(0, 0), direction: enumDirection.right },
+						{ pos: new Vector(0, 0), direction: enumDirection.top },
+					];
 				} else {
 					$old.updateVariants.call(this, entity, rotationVariant, variant);
 				}

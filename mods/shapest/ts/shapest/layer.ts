@@ -52,7 +52,7 @@ export namespace SzInfo {
 			{ name: 'pink', style: 'pink', code: 'p', combo: 'brr' },
 			{ name: 'black', style: 'black', code: 'k' },
 			{ name: 'grey', style: 'grey', code: 'u' },
-			{ name: 'white', style: 'white', code: 'w' },
+			{ name: 'white', style: 'white', code: 'w', combo: 'bgr' },
 			{ name: 'cover', style: 'sz-cover', code: 'j' },
 			{ name: 'none', style: 'none', code: '-' },
 		] as const;

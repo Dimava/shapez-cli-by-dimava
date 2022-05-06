@@ -1,6 +1,6 @@
 import { SzColorItem } from "../shapest/color.js";
 import { SzShapeItem } from "../shapest/item.js";
-import { ColorItem, defaultBuildingVariant, enumDirection, enumPainterVariants, ItemProcessorSystem, MetaPainterBuilding, Mod, MOD_ITEM_PROCESSOR_HANDLERS, ProcessorImplementationPayload, ShapeItem, Vector } from "../shapez.js";
+import { BeltUnderlaysComponent, ColorItem, defaultBuildingVariant, Entity, enumDirection, enumPainterVariants, ItemProcessorSystem, MetaPainterBuilding, Mod, MOD_ITEM_PROCESSOR_HANDLERS, ProcessorImplementationPayload, ShapeItem, Vector } from "../shapez.js";
 
 export class PainterOverride extends MetaPainterBuilding {
 
@@ -60,27 +60,26 @@ export class PainterOverride extends MetaPainterBuilding {
 
 
 		mod.modInterface.extendClass(MetaPainterBuilding, ({ $old }) => ({
-			updateVariants(entity: { components: { ItemEjector: { setSlots: (arg0: { pos: Vector; direction: string; }[]) => void; }; ItemAcceptor: { setSlots: (arg0: ({ pos: Vector; direction: string; filter?: undefined; } | { pos: Vector; direction: string; filter: string; })[]) => void; }; }; }, rotationVariant: any, variant: string) {
+			updateVariants(entity: Entity, rotationVariant: any, variant: string) {
 				$old.updateVariants.call(this, entity, rotationVariant, variant);
-				if (variant == defaultBuildingVariant) {
-					entity.components.ItemEjector.setSlots([
-						{ pos: new Vector(1, 0), direction: enumDirection.right },
-						{ pos: new Vector(1, 0), direction: enumDirection.bottom },
-					]);
-					entity.components.ItemAcceptor.setSlots([
-						{ pos: new Vector(0, 0), direction: enumDirection.left },
-						{ pos: new Vector(1, 0), direction: enumDirection.top, filter: "color" },
-					]);
+				if (!entity.components.BeltUnderlays) {
+					entity.addComponent(new BeltUnderlaysComponent({ underlays: [] }));
 				}
-				if (variant == enumPainterVariants.mirrored) {
+				entity.components.BeltUnderlays.underlays = [];
+				if (variant == defaultBuildingVariant || variant == enumPainterVariants.mirrored) {
+					let x = variant == defaultBuildingVariant;
+					let { top, bottom, left, right } = enumDirection;
 					entity.components.ItemEjector.setSlots([
-						{ pos: new Vector(1, 0), direction: enumDirection.right },
-						{ pos: new Vector(1, 0), direction: enumDirection.top },
+						{ pos: new Vector(1, 0), direction: right },
+						{ pos: new Vector(1, 0), direction: x ? bottom : top },
 					]);
 					entity.components.ItemAcceptor.setSlots([
-						{ pos: new Vector(0, 0), direction: enumDirection.left },
-						{ pos: new Vector(1, 0), direction: enumDirection.bottom, filter: "color" },
+						{ pos: new Vector(0, 0), direction: left },
+						{ pos: new Vector(1, 0), direction: x ? top : bottom, filter: "color" },
 					]);
+					entity.components.BeltUnderlays.underlays = [
+						{ pos: new Vector(1, 0), direction: x ? bottom : top },
+					];
 				}
 			},
 		}));
